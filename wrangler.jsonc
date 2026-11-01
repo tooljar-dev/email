@@ -1,0 +1,30 @@
+// Cloudflare Worker "tooljar-email": the temp mail checker and API at https://email.tooljar.dev.
+// SAFETY (workspace rule, decision 0004): run wrangler ONLY from this folder, ALWAYS with
+// --config wrangler.jsonc, and run `npm run cf:dry` before every deploy by hand.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tooljar-email",
+  // The Cloudflare account "tooljar" (the same one as ip.tooljar.dev). Not a secret.
+  "account_id": "3ac929240c8524f806d886eb8441e71c",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-20",
+  // No *.workers.dev copy of the site: it would compete with email.tooljar.dev in search.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "email.tooljar.dev", "custom_domain": true }],
+  // Static files (icons). A path with no file here goes to the Worker.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  // data/*.txt are bundled as plain strings (rebuilt daily by scripts/update-data.mjs).
+  "rules": [{ "type": "Text", "globs": ["**/*.txt"], "fallthrough": true }],
+  "vars": {
+    // Cloudflare Web Analytics site token. It is public (it appears in every page).
+    // Empty = no analytics script.
+    "ANALYTICS_TOKEN": ""
+  },
+  // No stored request logs: the privacy page says we don't log the addresses people check.
+  // Use `npx wrangler tail --config wrangler.jsonc` to watch live requests when debugging.
+  "observability": { "enabled": false }
+}

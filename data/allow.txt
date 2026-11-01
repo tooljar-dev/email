@@ -1,0 +1,64 @@
+# Domains the checker never calls temp mail, even when a list names them.
+# Format: domain  kind  # note
+#   provider   = a normal email provider people keep for years
+#   forwarding = a privacy forwarding service: the address forwards to a real inbox
+# Subdomains are covered too. Add a domain only after checking it (its MX record and owner),
+# and say why in the commit message.
+
+# Big email providers
+gmail.com            provider
+googlemail.com       provider
+outlook.com          provider
+hotmail.com          provider
+live.com             provider
+msn.com              provider
+yahoo.com            provider
+ymail.com            provider
+aol.com              provider
+icloud.com           provider
+me.com               provider
+mac.com              provider
+proton.me            provider
+protonmail.com       provider
+pm.me                provider
+gmx.com              provider
+gmx.de               provider
+gmx.net              provider
+web.de               provider
+mail.com             provider
+yandex.ru            provider
+yandex.com           provider
+mail.ru              provider
+qq.com               provider
+163.com              provider
+126.com              provider
+zoho.com             provider
+fastmail.com         provider
+tutanota.com         provider
+tuta.io              provider
+hey.com              provider
+mailbox.org          provider
+posteo.de            provider
+
+# Privacy forwarding services (MX checked 2026-11-01). mailchecker lists most of these.
+duck.com                  forwarding  # DuckDuckGo Email Protection
+mozmail.com               forwarding  # Firefox Relay
+privaterelay.appleid.com  forwarding  # Apple Hide My Email
+simplelogin.com           forwarding  # SimpleLogin (Proton), MX mx1.simplelogin.co
+simplelogin.fr            forwarding  # SimpleLogin
+aleeas.com                forwarding  # SimpleLogin
+slmails.com               forwarding  # SimpleLogin
+slmail.me                 forwarding  # SimpleLogin
+silomails.com             forwarding  # SimpleLogin
+8alias.com                forwarding  # SimpleLogin
+8shield.net               forwarding  # SimpleLogin
+dralias.com               forwarding  # SimpleLogin
+passmail.net              forwarding  # Proton Pass aliases, via SimpleLogin
+passinbox.com             forwarding  # Proton Pass aliases, via SimpleLogin
+passfwd.com               forwarding  # Proton Pass aliases, via SimpleLogin
+anonaddy.com              forwarding  # addy.io (formerly AnonAddy)
+anonaddy.me               forwarding  # addy.io
+addy.io                   forwarding  # addy.io
+
+# Our own
+tooljar.dev          provider

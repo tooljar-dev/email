@@ -1,0 +1,27 @@
+{
+  "name": "tooljar-email",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Temp mail checker: is this email address disposable? A fast page and a free API that always say why. Runs on a Cloudflare Worker.",
+  "scripts": {
+    "dev": "wrangler dev --config wrangler.jsonc",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "check": "biome check . && tsc --noEmit && vitest run && wrangler deploy --config wrangler.jsonc --dry-run --outdir .wrangler/dry-run",
+    "cf:dry": "wrangler deploy --config wrangler.jsonc --dry-run --outdir .wrangler/dry-run",
+    "data": "node scripts/update-data.mjs",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.3",
+    "@cloudflare/vitest-plugin": "1.4.7",
+    "@cloudflare/workers-types": "5.20261025.1",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5",
+    "wrangler": "4.152.0"
+  }
+}
