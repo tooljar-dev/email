@@ -42,6 +42,20 @@ Full field list: https://email.tooljar.dev/api. Field names are stable: new fiel
 
 Fair use: up to 50 requests in 10 seconds per IP. For bulk checks, use the data files in `data/` directly.
 
+## npm package
+
+```sh
+npm install is-temp-mail
+```
+
+```js
+import { isTempMail, normalizeEmail } from "is-temp-mail";
+isTempMail("someone@mailinator.com"); // true, offline, no network call
+normalizeEmail("John.Doe+trial@gmail.com"); // "johndoe@gmail.com"
+```
+
+Built from the same data and rules (`npm/`, `scripts/build-npm.mjs`). A GitHub Action publishes a new version every Sunday when the data changed, through npm trusted publishing (no stored token).
+
 ## How accurate is it?
 
 The daily job tests itself, and the numbers are on https://email.tooljar.dev/how-it-works:

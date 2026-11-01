@@ -1,0 +1,34 @@
+# Publishes the npm package "is-temp-mail" every week, only when the data changed.
+# Trusted publishing: npm trusts this workflow in the GitHub environment "npm". No token is stored.
+name: release
+on:
+  schedule:
+    - cron: "40 4 * * 0" # Sundays at 04:40 UTC, after the daily data job
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: release
+  cancel-in-progress: false
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write # trusted publishing and provenance
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24.21.0"
+          registry-url: https://registry.npmjs.org
+      - name: Build the package from the current data
+        id: build
+        run: node scripts/build-npm.mjs
+      - name: Test the package
+        run: node --test npm/test.mjs
+      - name: Publish (only when the data changed)
+        if: steps.build.outputs.changed == 'true'
+        working-directory: npm
+        run: npm publish --access public

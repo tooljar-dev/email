@@ -19,19 +19,21 @@ The temp mail checker and free API at **https://email.tooljar.dev**: one Cloudfl
 
 ## Where things live
 
-| Path                      | What it is                                                                                                                             |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `src/index.ts`            | Router: path checks (`/mailinator.com`), `/api/check`, pages, crawler files, headers (CSP, CORS)                                       |
-| `src/check.ts`            | The checker: input parsing, list and allow-list lookups, Gmail clean-up, the verdict and its reasons; the public JSON shape (`Result`) |
-| `src/dns.ts`              | Live MX/A lookups through Cloudflare DNS over HTTPS (only the domain is sent)                                                          |
-| `src/data.ts`             | Loads `data/*.txt` and `data/meta.json` at start-up                                                                                    |
-| `src/pages/`              | HTML pages; `parts.ts` has the result card and FAQ helpers                                                                             |
-| `src/layout.ts`           | `<head>`, header, footer, all CSS (same look as `../ip`)                                                                               |
-| `src/seo.ts`              | `PAGE_PATHS`, robots.txt, sitemap.xml, llms.txt, security.txt                                                                          |
-| `data/`                   | The data: `domains.txt`, `servers.txt`, `meta.json` (generated), `allow.txt` (by hand), `LICENSES.md`                                  |
-| `scripts/update-data.mjs` | The daily data job: merge the lists, learn temp mail servers, test, write                                                              |
-| `scripts/smoke.mjs`       | Live checks against a running copy                                                                                                     |
-| `.github/workflows/`      | `ci.yml` (checks on every push); `data.yml` (daily data, check, commit, deploy, smoke)                                                 |
+| Path                      | What it is                                                                                                                                                                                                                    |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/index.ts`            | Router: path checks (`/mailinator.com`), `/api/check`, pages, crawler files, headers (CSP, CORS)                                                                                                                              |
+| `src/check.ts`            | The checker: input parsing, list and allow-list lookups, Gmail clean-up, the verdict and its reasons; the public JSON shape (`Result`)                                                                                        |
+| `src/dns.ts`              | Live MX/A lookups through Cloudflare DNS over HTTPS (only the domain is sent)                                                                                                                                                 |
+| `src/data.ts`             | Loads `data/*.txt` and `data/meta.json` at start-up                                                                                                                                                                           |
+| `src/pages/`              | HTML pages; `parts.ts` has the result card and FAQ helpers                                                                                                                                                                    |
+| `src/layout.ts`           | `<head>`, header, footer, all CSS (same look as `../ip`)                                                                                                                                                                      |
+| `src/seo.ts`              | `PAGE_PATHS`, robots.txt, sitemap.xml, llms.txt, security.txt                                                                                                                                                                 |
+| `data/`                   | The data: `domains.txt`, `servers.txt`, `meta.json` (generated), `allow.txt` (by hand), `LICENSES.md`                                                                                                                         |
+| `scripts/update-data.mjs` | The daily data job: merge the lists, learn temp mail servers, test, write                                                                                                                                                     |
+| `npm/`                    | The npm package `is-temp-mail`: `index.js` (same rules as `src/check.ts`, keep them in step), `index.d.ts`, `test.mjs`, `README.md`. `data.js` and `package.json` are generated                                               |
+| `scripts/build-npm.mjs`   | Builds the npm package from `data/`; version = published + 1 patch; `dataHash` skips unchanged data                                                                                                                           |
+| `scripts/smoke.mjs`       | Live checks against a running copy                                                                                                                                                                                            |
+| `.github/workflows/`      | `ci.yml` (checks on every push); `data.yml` (daily data, check, commit, deploy, smoke); `release.yml` (Sundays: publish `is-temp-mail` to npm when the data changed, trusted publishing, environment `npm` limited to `main`) |
 
 ## Run, check, deploy
 

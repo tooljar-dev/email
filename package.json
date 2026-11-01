@@ -14,7 +14,9 @@
     "check": "biome check . && tsc --noEmit && vitest run && wrangler deploy --config wrangler.jsonc --dry-run --outdir .wrangler/dry-run",
     "cf:dry": "wrangler deploy --config wrangler.jsonc --dry-run --outdir .wrangler/dry-run",
     "data": "node scripts/update-data.mjs",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "npm:build": "node scripts/build-npm.mjs",
+    "npm:test": "node --test npm/test.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.3",

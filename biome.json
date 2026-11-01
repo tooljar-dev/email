@@ -1,7 +1,16 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
-    "includes": ["**", "!node_modules", "!.wrangler", "!data", "!public/*.png", "!public/*.ico"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.wrangler",
+      "!data",
+      "!npm/data.js",
+      "!npm/package.json",
+      "!public/*.png",
+      "!public/*.ico"
+    ]
   },
   "formatter": {
     "indentStyle": "space",
