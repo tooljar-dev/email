@@ -37,6 +37,8 @@ export interface OnlineResult {
 export function checkEmail(input: string): OfflineResult | null;
 /** true when the address or domain is on a temp mail list. */
 export function isTempMail(input: string): boolean;
+/** The same as isTempMail, named after the package. */
+export function isTempEmail(input: string): boolean;
 /** The real inbox for Gmail and others, or null when nothing changes. */
 export function normalizeEmail(input: string): string | null;
 /** Asks https://email.tooljar.dev (adds the live mail-server check). */

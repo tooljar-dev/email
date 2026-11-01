@@ -1,4 +1,4 @@
-# Publishes the npm package "is-temp-mail" every week, only when the data changed.
+# Publishes the npm package "is-temp-email" every week, only when the data changed.
 # Trusted publishing: npm trusts this workflow in the GitHub environment "npm". No token is stored.
 name: release
 on:

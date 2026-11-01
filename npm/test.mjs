@@ -1,11 +1,12 @@
 // Tests for the npm package. Run after `npm run npm:build`: node --test npm/test.mjs
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { checkEmail, dataUpdated, isTempMail, normalizeEmail } from "./index.js";
+import { checkEmail, dataUpdated, isTempEmail, isTempMail, normalizeEmail } from "./index.js";
 
 test("listed domains and their subdomains are temp mail", () => {
   assert.equal(isTempMail("someone@mailinator.com"), true);
   assert.equal(isTempMail("mailinator.com"), true);
+  assert.equal(isTempEmail("someone@mailinator.com"), true);
   const r = checkEmail("a@x.mailinator.com");
   assert.equal(r.listedAs, "mailinator.com");
   assert.ok(r.lists.length > 0);

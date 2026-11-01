@@ -8,6 +8,7 @@
       "!data",
       "!npm/data.js",
       "!npm/package.json",
+      "!npm/DATA-LICENSES.md",
       "!public/*.png",
       "!public/*.ico"
     ]

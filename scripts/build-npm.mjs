@@ -1,4 +1,4 @@
-// Builds the npm package "is-temp-mail" in ./npm from ./data. Usage: npm run npm:build
+// Builds the npm package "is-temp-email" in ./npm from ./data. Usage: npm run npm:build
 // Writes npm/data.js, npm/package.json, npm/LICENSE and npm/DATA-LICENSES.md (all generated).
 // The version is the published version + 1 (patch). `dataHash` lets the release job skip
 // publishing when the data did not change.
@@ -6,7 +6,7 @@ import { createHash } from "node:crypto";
 import { copyFile, readFile, writeFile } from "node:fs/promises";
 
 const root = new URL("../", import.meta.url);
-const NAME = "is-temp-mail";
+const NAME = "is-temp-email";
 
 const domains = (await readFile(new URL("data/domains.txt", root), "utf8")).trim();
 const meta = JSON.parse(await readFile(new URL("data/meta.json", root), "utf8"));

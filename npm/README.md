@@ -1,17 +1,18 @@
-# is-temp-mail
+# is-temp-email
 
 Is this email address temp mail (a disposable address)? An offline check against **78,000+ temp mail domains from 5 open lists**, merged and rebuilt from fresh data every week. No dependencies, no network call.
 
 ```sh
-npm install is-temp-mail
+npm install is-temp-email
 ```
 
 ```js
-import { isTempMail, checkEmail, normalizeEmail } from "is-temp-mail";
+import { isTempMail, checkEmail, normalizeEmail } from "is-temp-email";
 
 isTempMail("someone@mailinator.com"); // true
 isTempMail("someone@gmail.com"); // false
 isTempMail("abc@duck.com"); // false: a forwarding service, not temp mail
+// isTempEmail() is the same function, if you prefer the package's name
 
 checkEmail("a@x.mailinator.com");
 // { domain: "x.mailinator.com", disposable: true, listedAs: "mailinator.com",
@@ -30,7 +31,7 @@ normalizeEmail("John.Doe+trial@gmail.com"); // "johndoe@gmail.com": one real inb
 ## Online check (optional)
 
 ```js
-import { checkOnline } from "is-temp-mail";
+import { checkOnline } from "is-temp-email";
 
 const r = await checkOnline("someone@new-temp-domain.com");
 r.verdict; // "disposable" | "suspicious" | "undeliverable" | "ok"

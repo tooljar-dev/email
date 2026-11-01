@@ -45,11 +45,11 @@ Fair use: up to 50 requests in 10 seconds per IP. For bulk checks, use the data 
 ## npm package
 
 ```sh
-npm install is-temp-mail
+npm install is-temp-email
 ```
 
 ```js
-import { isTempMail, normalizeEmail } from "is-temp-mail";
+import { isTempMail, normalizeEmail } from "is-temp-email";
 isTempMail("someone@mailinator.com"); // true, offline, no network call
 normalizeEmail("John.Doe+trial@gmail.com"); // "johndoe@gmail.com"
 ```

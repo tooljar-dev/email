@@ -1,4 +1,4 @@
-// is-temp-mail: is this email address temp mail (disposable)? Offline, from 5 merged open lists.
+// is-temp-email: is this email address temp mail (disposable)? Offline, from 5 merged open lists.
 // The same rules as https://email.tooljar.dev (src/check.ts in this repo). Keep them in step.
 import { ALLOW, DOMAINS, SOURCES, UPDATED } from "./data.js";
 
@@ -111,6 +111,9 @@ export function checkEmail(input) {
 export function isTempMail(input) {
   return checkEmail(input)?.disposable ?? false;
 }
+
+/** The same as isTempMail, named after the package. */
+export const isTempEmail = isTempMail;
 
 /** Gmail and others: the real inbox, with dots and the +part removed. null when nothing changes. */
 export function normalizeEmail(input) {
