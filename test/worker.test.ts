@@ -149,6 +149,8 @@ describe("pages", () => {
         `<link rel="canonical" href="https://email.tooljar.dev${path}">`,
       );
       expect(res.headers.get("content-security-policy"), path).toContain("default-src 'none'");
+      // Cloudflare's automatic analytics beacon reports to /cdn-cgi/rum on this host.
+      expect(res.headers.get("content-security-policy"), path).toMatch(/connect-src 'self' /);
     }
   });
   it("sends browsers from a path check to the checker page", async () => {

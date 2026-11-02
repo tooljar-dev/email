@@ -18,7 +18,9 @@ const CSP = [
   "script-src https://static.cloudflareinsights.com",
   "style-src 'unsafe-inline'",
   "img-src 'self' data:",
-  "connect-src https://cloudflareinsights.com",
+  // 'self': Cloudflare's automatic Web Analytics beacon reports to /cdn-cgi/rum on this host.
+  // Without it every visit report was blocked (found 2026-11-02).
+  "connect-src 'self' https://cloudflareinsights.com",
   "base-uri 'none'",
   "form-action 'self'",
   "frame-ancestors 'none'",
