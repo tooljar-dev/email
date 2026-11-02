@@ -49,6 +49,13 @@ export function homePage(query: string, outcome: Outcome): Page {
     description: `Free temp mail checker. Paste an email address or domain: we check ${n(DATA_META.domains)} disposable email domains from ${SOURCES.length} public lists and the mail server, and tell you why. Free API, no sign-up.`,
     noindex: query !== "",
     structuredData: [
+      // The site name Google shows above the result (same as ip.tooljar.dev does).
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: SITE.name,
+        url: `${SITE.origin}/`,
+      },
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",

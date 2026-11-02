@@ -180,7 +180,7 @@ ${page.body}
 <footer><div class="wrap">
 <div class="cols">
 <div>
-<p><strong>tooljar Email</strong> is part of tooljar.dev: small, free, open-source tools.</p>
+<p><strong>tooljar Email</strong> is part of <a href="https://tooljar.dev">tooljar.dev</a>: small, free, open-source tools.</p>
 <p>Privacy: we don't store or log the addresses you check. No cookies and no ads.</p>
 </div>
 <ul>
@@ -188,6 +188,7 @@ ${page.body}
 <li><a href="/how-it-works">Data sources</a></li>
 <li><a href="/privacy">Privacy</a></li>
 <li><a href="https://ip.tooljar.dev">tooljar IP</a></li>
+<li><a href="https://tooljar.dev">All tooljar tools</a></li>
 <li><a href="${SITE.repo}">Source code on GitHub</a></li>
 </ul>
 </div>

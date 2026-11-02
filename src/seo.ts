@@ -53,6 +53,11 @@ export function llmsTxt(): string {
 - [Should you block temp mail at sign-up?](${o}/should-i-block-temp-mail)
 - [How the checker works: data sources and accuracy](${o}/how-it-works)
 
+## Other tooljar tools
+
+- [What is my IP address](https://ip.tooljar.dev): your public IP, location and network. Free page and API.
+- [All tooljar tools](https://tooljar.dev) ([as JSON](https://tooljar.dev/tools.json))
+
 ## Source
 
 - [Source code and data (MIT license)](${SITE.repo})
