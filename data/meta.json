@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-20",
-  "domains": 78871,
-  "servers": 462,
+  "updated": "2026-11-21",
+  "domains": 78862,
+  "servers": 458,
   "sources": [
     {
       "id": "disposable-email-domains",
@@ -37,19 +37,19 @@
   "tests": {
     "falseAlarms": {
       "about": "Popular websites (Tranco list) flagged by the mail-server check; never seen in training",
-      "flagged": 25,
-      "tested": 7179
+      "flagged": 20,
+      "tested": 7239
     },
     "backtest": {
       "about": "Domains the main list added in the last 30 days that last month's data would already have flagged",
-      "since": "2026-10-21",
-      "added": 491,
-      "withMail": 463,
-      "caught": 361
+      "since": "2026-10-22",
+      "added": 487,
+      "withMail": 457,
+      "caught": 356
     },
     "mainListNoMail": {
       "about": "Domains on the main list that can no longer receive mail (no MX record)",
-      "count": 3129,
+      "count": 3138,
       "of": 10298
     }
   }
