@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-21",
-  "domains": 78862,
-  "servers": 458,
+  "updated": "2026-11-22",
+  "domains": 78855,
+  "servers": 459,
   "sources": [
     {
       "id": "disposable-email-domains",
       "home": "https://github.com/disposable-email-domains/disposable-email-domains",
       "license": "CC0-1.0",
-      "count": 10399
+      "count": 10454
     },
     {
       "id": "mailchecker",
@@ -25,7 +25,7 @@
       "id": "fakefilter",
       "home": "https://github.com/7c/fakefilter",
       "license": "BSD-3-Clause",
-      "count": 10701
+      "count": 10694
     },
     {
       "id": "burner-email-providers",
@@ -37,20 +37,20 @@
   "tests": {
     "falseAlarms": {
       "about": "Popular websites (Tranco list) flagged by the mail-server check; never seen in training",
-      "flagged": 20,
-      "tested": 7239
+      "flagged": 33,
+      "tested": 7245
     },
     "backtest": {
       "about": "Domains the main list added in the last 30 days that last month's data would already have flagged",
-      "since": "2026-10-22",
-      "added": 487,
-      "withMail": 457,
-      "caught": 356
+      "since": "2026-10-23",
+      "added": 534,
+      "withMail": 504,
+      "caught": 375
     },
     "mainListNoMail": {
       "about": "Domains on the main list that can no longer receive mail (no MX record)",
-      "count": 3138,
-      "of": 10298
+      "count": 3120,
+      "of": 10322
     }
   }
 }
